@@ -6,16 +6,18 @@
 #include <cstdlib>
 
 // print the array
-void show_STL_array(std::array<int,3> array)
+void show_STL_array(std::array<int,101> array, int size)
 {
     std::cout << "Your guesses: ";
 
-    for(int i=0;i < array.size();i++)
+    for(int i=0;i < size;i++)
     {
         std::cout << array[i] << "\t";
     }
 
     std::cout << std::endl;
+
+    std::cout << "Your total guess number: " << size << std::endl;
 }
 
 
@@ -30,13 +32,11 @@ void play_game()
     int loop=0;
 
     // create array which has 3 members
-    std::array<int,3> datas;
+    std::array<int,101> datas;
 
-    std::cout << "---You have exactly 3 right!---" << std::endl;
-
-    while(loop!=3)
+    while(true)
     {
-        std::cout << "Your current right is " << loop+1 << "!!!" << std::endl;
+        std::cout << "Your try number " << loop+1 << "!" << std::endl;
         std::cout << "Guess: ";
         std::cin >> guess;
 
@@ -56,7 +56,7 @@ void play_game()
             std::cout << "Your guess is high!" << std::endl;
         }
     }
-    show_STL_array(datas); // call the function to print array
+    show_STL_array(datas,loop); // call the function to print array
 }
 
 int main()
